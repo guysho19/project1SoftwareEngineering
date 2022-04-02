@@ -4,13 +4,23 @@ import java.util.Scanner;
 
 public class Main {
     public static Scanner scanner;  // Note: Do not change this line.
+    public static final int VALID = 1;
+    public static final int NOT_VALID = 0;
 
     public static void theStudentsGame() {
-
         System.out.println("Dear president, please enter the board’s size.");
-        Scanner scanner= new Scanner(System.in);
+        scanner= new Scanner(System.in);
         int rows=scanner.nextInt();
         int columns=scanner.nextInt();
+        int[][] students_board=new int[rows][columns];
+        System.out.println("Dear president, please enter the cell's indexes.");
+    }
+    public static void initializeBoard(int[][] students_board) {
+        for (int i = 0; i <students_board.length ; i++) {
+            for (int j = 0; j <students_board[0].length ; j++) {
+                students_board[i][j]=NOT_VALID;
+            }
+        }
     }
 
     public static void main(String[] args) throws IOException {

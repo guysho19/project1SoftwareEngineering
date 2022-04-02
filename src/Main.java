@@ -19,6 +19,17 @@ public class Main {
         initializeBoard(students_board);
         System.out.println("Dear president, please enter the cell's indexes.");
     }
+    
+    public static void printBoard (int[][] board, int numOfRows, int numOfColumns){
+        for (int i=0;i<numOfRows;i++){
+            for(int j=0;j<numOfColumns;j++){
+                if (board[i][j]==1) System.out.print(ACADEMICALLY_VALID_SIGN);
+                else System.out.print(ACADEMICALLY_INVALID_SIGN);
+            }
+            System.out.println();
+        }
+    }
+    
     public static void initializeBoard(int[][] students_board) {
         for (int i = 0; i <students_board.length ; i++) {
             for (int j = 0; j <students_board[0].length ; j++) {

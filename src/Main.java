@@ -7,6 +7,7 @@ public class Main {
 
     public static void theStudentsGame() {
         // TODO: Add your code here.
+        System.out.println("hey kfir just checking");
     }
 
     public static void main(String[] args) throws IOException {

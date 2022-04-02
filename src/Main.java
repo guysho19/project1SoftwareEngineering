@@ -64,9 +64,8 @@ public class Main {
                 else if (numberOfValidFriends==THREE_VALID_FRIENDS) boardChanges[i][j]=VALID;
                 else boardChanges[i][j]=INVALID;
             }
-            System.out.println();
         }
-
+        return changeHasBeenMade;
     }
     
     public static void initializeBoard(int[][] students_board) {

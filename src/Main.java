@@ -44,6 +44,14 @@ public class Main {
         return sum;
     }
 
+    public static void copyArr1ToArr2(int[][] arr1, int[][] arr2){
+        int numOfRows=arr1.length;
+        int numOfColumns=arr1[0].length;
+        for (int i=0; i < numOfRows;i++){
+            for (int j=0;j < numOfColumns;j++) arr1[i][j]=arr2[i][j];
+        }
+    }
+    
    public static boolean checkValidityCondition(int[][] board){
         boolean changeHasBeenMade=false;
         int numOfRows=board.length;
@@ -65,6 +73,7 @@ public class Main {
                 else boardChanges[i][j]=INVALID;
             }
         }
+        copyArr1ToArr2(board,boardChanges);
         return changeHasBeenMade;
     }
     

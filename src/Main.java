@@ -6,13 +6,18 @@ public class Main {
     public static Scanner scanner;  // Note: Do not change this line.
 
     public static void theStudentsGame() {
-        // TODO: Add your code here.
+
+        System.out.println("Dear president, please enter the board’s size.");
+        Scanner scanner= new Scanner(System.in);
+        int rows=scanner.nextInt();
+        int columns=scanner.nextInt();
     }
 
     public static void main(String[] args) throws IOException {
-        String path = args[0];
-        System.out.println("hey kfir just checking of something has changed");
-        scanner = new Scanner(new File(path));
+        //String path = args[0];
+       // System.out.println("hey kfir just checking of something has changed");
+        //scanner = new Scanner(new File(path));
+        Scanner scanner= new Scanner(System.in);
         int numberOfGames = scanner.nextInt();
         scanner.nextLine();
 

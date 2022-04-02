@@ -5,21 +5,34 @@ import java.util.Scanner;
 public class Main {
     public static Scanner scanner;  // Note: Do not change this line.
     public static final int VALID = 1;
-    public static final int NOT_VALID = 0;
+    public static final int INVALID = 0;
+    public static final char ACADEMICALLY_VALID_SIGN='▮';
+    public static final char ACADEMICALLY_INVALID_SIGN='▯';
 
     public static void theStudentsGame() {
         System.out.println("Dear president, please enter the board’s size.");
         scanner= new Scanner(System.in);
         int rows=scanner.nextInt();
+        scanner.next();
         int columns=scanner.nextInt();
         int[][] students_board=new int[rows][columns];
+        initializeBoard(students_board);
         System.out.println("Dear president, please enter the cell's indexes.");
     }
     public static void initializeBoard(int[][] students_board) {
         for (int i = 0; i <students_board.length ; i++) {
             for (int j = 0; j <students_board[0].length ; j++) {
-                students_board[i][j]=NOT_VALID;
+                students_board[i][j]=INVALID;
             }
+        }
+    }
+    public static void printBoard (int[][] board, int numOfRows, int numOfColumns){
+        for (int i=0;i<numOfRows;i++){
+            for(int j=0;j<numOfColumns;j++){
+                if (board[i][j]==1) System.out.print(ACADEMICALLY_VALID_SIGN);
+                else System.out.print(ACADEMICALLY_INVALID_SIGN);
+            }
+            System.out.println();
         }
     }
 

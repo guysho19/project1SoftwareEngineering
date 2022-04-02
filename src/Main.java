@@ -7,11 +7,11 @@ public class Main {
 
     public static void theStudentsGame() {
         // TODO: Add your code here.
-        System.out.println("hey kfir just checking");
     }
 
     public static void main(String[] args) throws IOException {
         String path = args[0];
+        System.out.println("hey kfir just checking");
         scanner = new Scanner(new File(path));
         int numberOfGames = scanner.nextInt();
         scanner.nextLine();

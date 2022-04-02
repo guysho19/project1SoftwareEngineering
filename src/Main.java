@@ -8,6 +8,8 @@ public class Main {
     public static final int INVALID = 0;
     public static final char ACADEMICALLY_VALID_SIGN ='▮';
     public static final char ACADEMICALLY_INVALID_SIGN ='▯';
+    public static final int TWO_VALID_FRIENDS = 2;
+    public static final int THREE_VALID_FRIENDS = 3;
     public static final String YOKRA = "Yokra";
     public static final int SUB_INPUT_LENGTH = 2;
 
@@ -26,7 +28,46 @@ public class Main {
         getIndexes(students_board);
     }
     
+        public static int countInRow(int[][] board,int row, int column) {
+        if (row<0 || row>= board.length) return 0;
+        int sum=board[row][column];
+        if (column>0) sum+=board[row][column-1];
+        if (column+1<board[0].length) sum+=board[row][column+1];
+        return sum;
+    }
 
+    public static int countAcademicallyValidFriends(int[][] board,int row, int column){
+        if (row<0 || row>= board.length ||column<0 || column>=board[0].length) return 0;
+        int sum=0;
+        for (int i=-1;i<=1;i++) sum+=countInRow(board,row+i,column);
+        sum-=board[row][column];
+        return sum;
+    }
+
+   public static boolean checkValidityCondition(int[][] board){
+        boolean changeHasBeenMade=false;
+        int numOfRows=board.length;
+        int numOfColumns=board[0].length;
+        int numberOfValidFriends=0;
+        int[][] boardChanges=new int[numOfRows][numOfColumns];
+        initializeBoard(boardChanges);
+        for (int i=0;i<numOfRows;i++){
+            for(int j=0;j<numOfColumns;j++){
+                numberOfValidFriends=countAcademicallyValidFriends(board,i,j);
+                if (board[i][j]==VALID){
+                    if (numberOfValidFriends>=TWO_VALID_FRIENDS && numberOfValidFriends<=THREE_VALID_FRIENDS) boardChanges[i][j]=VALID;
+                    else{
+                        boardChanges[i][j]=INVALID;
+                        changeHasBeenMade=true;
+                    }
+                }
+                else if (numberOfValidFriends==THREE_VALID_FRIENDS) boardChanges[i][j]=VALID;
+                else boardChanges[i][j]=INVALID;
+            }
+            System.out.println();
+        }
+
+    }
     
     public static void initializeBoard(int[][] students_board) {
         for (int i = 0; i <students_board.length ; i++) {
